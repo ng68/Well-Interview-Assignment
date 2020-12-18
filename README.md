@@ -7,9 +7,11 @@ Before running anything, configure the aws provider credentials and follow stand
 
 (Using latest Terraform version - 0.14.3)
 Scripts to run in order:
+
 Terraform:
 - terraform init
 - terraform validate .
+
 Go Test
 - cd tests
 - go test module_test.go
