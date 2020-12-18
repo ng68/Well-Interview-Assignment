@@ -9,9 +9,9 @@ import (
 )
 
 type Fields struct {
-	BucketID           string
-	KMSKeyID  		   string
-	KMSKeyARN   	   string
+	BucketID  string
+	KMSKeyID  string
+	KMSKeyARN string
 }
 
 type moduleTestCase struct {
@@ -27,7 +27,7 @@ func TestModule_Simple(t *testing.T) {
 		TestName:   "simpletest",
 		ModuleName: "s3bucket",
 		Expected: Fields{
-			BucketID:         "s3bucket",
+			BucketID: "s3bucket",
 		},
 	}
 
@@ -46,8 +46,8 @@ func runModuleTest(t *testing.T, tc *moduleTestCase) {
 	require.Nil(t, errinit)
 
 	actual := Fields{
-		BucketID:         	terraform.Output(t, options, "s3_bucket_id"),
-		KMSKeyID:			terraform.Output(t, options, "kms_key_id"),
+		BucketID: terraform.Output(t, options, "s3_bucket_id"),
+		KMSKeyID: terraform.Output(t, options, "kms_key_id"),
 	}
 
 	verifyFields(t, tc.Expected, actual)
